@@ -10,7 +10,7 @@
 # this is NOT meant for production!
 # -----------
 
-set -ebpf
+set -ebpfu
 
 # application domain name
 export DOMAIN=awesome.sauce
@@ -34,7 +34,10 @@ function info_ok { echo -e "$GREEN" "ok" "$NO_COLOR" ; }
 export PATH=$PATH:/usr/local/bin
 
 # set server Ip here or from the command line
-export server=$2
+server=""
+if [ $# -gt 1 ] ; then
+  export server=$2
+fi
 
 # el version
 export EL_ver=  #set to el8 or el9 or the script will figure it out
